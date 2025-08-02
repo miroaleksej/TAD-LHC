@@ -1,9 +1,7 @@
 # 🌌 Topological Anomaly Detector for LHC (TAD-LHC)
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/42b57886-0be4-49cb-a2c7-bf9cfb4c29bc" />
 
-
-![Visitors](https://api.visitorbadge.io/api/visitors?
-
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https://github.com/yourrepo&label=Visitors&countColor=%23263759)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen)
