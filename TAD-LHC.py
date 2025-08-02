@@ -188,7 +188,7 @@ class LHCDataHypercube:
         """
         Compute Betti numbers for the hypercube data.
         
-        Expected values for "normal" 
+        Expected values for "normal" LHC data:
         - β₀ = 1 (one connected component)
         - β₁ = 0 (no cycles)
         - β₂ = 0 (no voids)
@@ -228,6 +228,7 @@ class LHCDataHypercube:
         :return: List of expected Betti numbers
         """
         return [1] + [0] * self.max_dimension
+
 class AdaptiveTDACompressor:
     """
     Adaptive Topological Data Analysis compressor based on Theorem 16.
@@ -412,6 +413,7 @@ class AdaptiveTDACompressor:
         metadata_size = 100  # Approximate size for metadata
         
         return indices_size + values_size + metadata_size
+
 class TopologicalAnomalyDetector:
     """
     Topological anomaly detection system for LHC data.
@@ -606,6 +608,7 @@ class TopologicalAnomalyDetector:
         
         # Show plot
         plt.show()
+
 class CERNSystemIntegration:
     """
     Integration layer for CERN's data processing systems.
@@ -791,6 +794,7 @@ class CERNSystemIntegration:
             if self.event_buffer:
                 self.process_buffer()
             self.logger.info("Stream processing completed")
+
 class TADLHCBenchmark:
     """
     Benchmarking suite for TAD-LHC.
@@ -888,6 +892,13 @@ class TADLHCBenchmark:
 def main():
     """Main function for TAD-LHC application."""
     logger = logging.getLogger('TAD-LHC.Main')
+    
+    # Add console logging
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
     
     logger.info("="*80)
     logger.info("TOPOLOGICAL ANOMALY DETECTOR FOR LHC (TAD-LHC)")
