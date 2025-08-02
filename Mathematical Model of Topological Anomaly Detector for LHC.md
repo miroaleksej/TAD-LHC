@@ -24,7 +24,7 @@ representing the number of events falling within each hypercube cell.
 ### 2.2. Topological Representation
 
 **Definition 4 (Point Cloud Representation):** Given the hypercube representation, the corresponding point cloud $X \subset \mathbb{R}^{n+1}$ is defined as:
-$$X = {\left\{\left(\frac{j_1-0.5}{k}, \frac{j_2-0.5}{k}, \dots, \frac{j_n-0.5}{k}, f(C_{j_1,j_2,\dots,j_n})\right) \mid f(C_{j_1,j_2,\dots,j_n}) > 0\right\}}$$
+$$X=\left\{\left(\frac{j_1-0.5}{k}, \frac{j_2-0.5}{k}, \dots, \frac{j_n-0.5}{k}, f(C_{j_1,j_2,\dots,j_n})\right) \mid f(C_{j_1,j_2,\dots,j_n}) > 0\right\}$$
 
 **Definition 5 (Rips Complex):** For a point cloud $X$ and scale parameter $\epsilon > 0$, the Rips complex $\mathcal{R}_\epsilon(X)$ is the abstract simplicial complex where a simplex $\sigma = [x_0, x_1, \dots, x_k]$ is included if and only if $d(x_i, x_j) \leq \epsilon$ for all $i,j \in \{0,1,\dots,k\}$.
 
