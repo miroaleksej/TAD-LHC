@@ -1,17 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Topological Anomaly Detector for LHC (TAD-LHC)
-Scientifically rigorous implementation for anomaly detection in LHC data
-through persistent homology and sheaf cohomology analysis.
-
-This is a production-ready implementation without simplifications,
-designed for direct integration with CERN's data processing systems.
-
-Version: 1.0
-Date: 2025-08-02
-"""
-
 import numpy as np
 import gudhi as gd
 import zstandard as zstd
