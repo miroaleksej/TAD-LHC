@@ -17,7 +17,7 @@ $$\mathcal{P}_k = \bigcup_{j_1=1}^k \bigcup_{j_2=1}^k \dots \bigcup_{j_n=1}^k C_
 where $C_{j_1,j_2,\dots,j_n}$ is the hypercube cell defined by:
 $$C_{j_1,j_2,\dots,j_n} = \prod_{i=1}^n \left[a_i + \frac{(j_i-1)(b_i-a_i)}{k}, a_i + \frac{j_i(b_i-a_i)}{k}\right)$$
 
-**Definition 3 (Event Counting Function):** The event counting function $f: \mathcal{P}_k \rightarrow \mathbb{N}$ is defined as:
+**Definition 3 (Event Counting Function):** The event counting function $f:\mathcal{P}_k \rightarrow \mathbb{N}$ is defined as:
 $$f(C_{j_1,j_2,\dots,j_n}) = \left|\left\{e \in \mathcal{E} \mid e \in C_{j_1,j_2,\dots,j_n}\right\}\right|$$
 representing the number of events falling within each hypercube cell.
 
