@@ -9,43 +9,28 @@ This document presents the rigorous mathematical foundation of the Topological A
 ### 2.1. Data Representation
 
 **Definition 1 (LHC Event Space):** Let $\mathcal{E}$ be the space of LHC collision events, where each event $e \in \mathcal{E}$ is characterized by a set of physical parameters:
-
-$$
-e = (e_1, e_2, \dots, e_n) \in \mathbb{R}^n
-$$
+$$e = (e_1, e_2, \dots, e_n) \in \mathbb{R}^n$$
 where $e_i$ represents physical observables such as energy, transverse momentum, invariant mass, etc.
 
 **Definition 2 (Discretized Parameter Space):** Let $\mathcal{P} = \prod_{i=1}^n [a_i, b_i]$ be the bounded parameter space for LHC events, discretized into a hypercube with $k$ bins per dimension:
-
-$$
-\mathcal{P}_k = \bigcup_{j_1=1}^k \bigcup_{j_2=1}^k \dots \bigcup_{j_n=1}^k C_{j_1,j_2,\dots,j_n}
-$$
+$$\mathcal{P}_k = \bigcup_{j_1=1}^k \bigcup_{j_2=1}^k \dots \bigcup_{j_n=1}^k C_{j_1,j_2,\dots,j_n}$$
 where $C_{j_1,j_2,\dots,j_n}$ is the hypercube cell defined by:
-$$
-C_{j_1,j_2,\dots,j_n} = \prod_{i=1}^n \left[a_i + \frac{(j_i-1)(b_i-a_i)}{k}, a_i + \frac{j_i(b_i-a_i)}{k}\right)
-$$
+$$C_{j_1,j_2,\dots,j_n} = \prod_{i=1}^n \left[a_i + \frac{(j_i-1)(b_i-a_i)}{k}, a_i + \frac{j_i(b_i-a_i)}{k}\right)$$
 
 **Definition 3 (Event Counting Function):** The event counting function $f: \mathcal{P}_k \rightarrow \mathbb{N}$ is defined as:
-
-$$
-f(C_{j_1,j_2,\dots,j_n}) = \left|\left\{e \in \mathcal{E} \mid e \in C_{j_1,j_2,\dots,j_n}\right\}\right|
-$$
+$$f(C_{j_1,j_2,\dots,j_n}) = \left|\left\{e \in \mathcal{E} \mid e \in C_{j_1,j_2,\dots,j_n}\right\}\right|$$
 representing the number of events falling within each hypercube cell.
 
 ### 2.2. Topological Representation
 
 **Definition 4 (Point Cloud Representation):** Given the hypercube representation, the corresponding point cloud $X \subset \mathbb{R}^{n+1}$ is defined as:
-
-$$
-X = \left\{\left(\frac{j_1-0.5}{k}, \frac{j_2-0.5}{k}, \dots, \frac{j_n-0.5}{k}, f(C_{j_1,j_2,\dots,j_n})\right) \mid f(C_{j_1,j_2,\dots,j_n}) > 0\right\}
-$$
+$$X = \left\{\left(\frac{j_1-0.5}{k}, \frac{j_2-0.5}{k}, \dots, \frac{j_n-0.5}{k}, f(C_{j_1,j_2,\dots,j_n})\right) \mid f(C_{j_1,j_2,\dots,j_n}) > 0\right\}$$
 
 **Definition 5 (Rips Complex):** For a point cloud $X$ and scale parameter $\epsilon > 0$, the Rips complex $\mathcal{R}_\epsilon(X)$ is the abstract simplicial complex where a simplex $\sigma = [x_0, x_1, \dots, x_k]$ is included if and only if $d(x_i, x_j) \leq \epsilon$ for all $i,j \in \{0,1,\dots,k\}$.
 
 **Theorem 1 (Hypercube Construction Complexity):** Construction of an n-dimensional hypercube with k cells per axis requires $O(m + kn)$ operations, where $m$ is the number of data points.
 
 *Proof:* The construction requires:
-
 - $O(m)$ operations to distribute points into cells
 - $O(kn)$ operations to compute cell properties
 
@@ -56,48 +41,34 @@ Thus, the total complexity is $O(m + kn)$. $\blacksquare$
 **Definition 6 (Persistence Diagram):** For a filtration of simplicial complexes $\{\mathcal{K}_t\}_{t \in \mathbb{R}}$, the persistence diagram $D$ is a multiset of points $(b,d)$ where $b$ (birth) and $d$ (death) represent the filtration values at which a topological feature appears and disappears.
 
 **Definition 7 (Betti Numbers):** The $i$-th Betti number $\beta_i$ of a topological space is the rank of its $i$-th homology group, representing:
-
 - $\beta_0$: number of connected components
 - $\beta_1$: number of independent cycles
 - $\beta_2$: number of voids or cavities
 
 **Theorem 2 (Expected Topological Properties):** For standard model physics data without anomalies, the Betti numbers of the LHC event hypercube satisfy:
-
-$$
-\beta_0 = 1, \quad \beta_1 = 0, \quad \beta_2 = 0
-$$
+$$\beta_0 = 1, \quad \beta_1 = 0, \quad \beta_2 = 0$$
 
 *Proof:* Standard model physics data forms a single connected component ($\beta_0 = 1$) with no unexpected cycles ($\beta_1 = 0$) or voids ($\beta_2 = 0$) in the parameter space. $\blacksquare$
 
 **Definition 8 (Persistent Homology Indicator):** The persistent homology indicator $P(U)$ for a dataset $U$ is defined as:
-
-$$
-P(U) = \sum_{(b,d) \in D_1} (d - b)
-$$
+$$P(U) = \sum_{(b,d) \in D_1} (d - b)$$
 where $D_1$ is the persistence diagram for 1-dimensional features.
 
 **Theorem 3 (Topological Entropy):** The topological entropy $h_{\text{top}}$ of LHC data is experimentally measured as:
-
-$$
-h_{\text{top}} = \log(27.1 \pm 0.3)
-$$
+$$h_{\text{top}} = \log(27.1 \pm 0.3)$$
 
 *Proof:* Through extensive analysis of standard model data, the relationship between topological entropy and Betti numbers is established as $h_{\text{top}} = \log(\beta_1 + \epsilon)$, with experimental validation yielding the constant 27.1. $\blacksquare$
 
 ### 2.4. Adaptive Topological Data Analysis (AdaptiveTDA)
 
 **Definition 9 (Adaptive Compression Threshold):** The adaptive compression threshold $\epsilon(U)$ is defined as:
-
-$$
-\epsilon(U) = \epsilon_0 \cdot \exp(-\gamma \cdot P(U))
-$$
+$$\epsilon(U) = \epsilon_0 \cdot \exp(-\gamma \cdot P(U))$$
 where:
 - $\epsilon_0$ is the base compression threshold
 - $\gamma$ is the adaptivity parameter
 - $P(U)$ is the persistent homology indicator
 
 **Theorem 4 (AdaptiveTDA Compression):** For each data element:
-
 1. Compute the persistent homology indicator $P(U)$
 2. Determine adaptive compression threshold $\epsilon(U) = \epsilon_0 \cdot \exp(-\gamma \cdot P(U))$
 3. Apply quantization with threshold $\epsilon(U)$
@@ -110,7 +81,6 @@ This algorithm achieves a compression ratio of 12.7x while preserving 96% of top
 ### 2.5. Anomaly Detection Framework
 
 **Definition 10 (Anomaly):** An anomaly in LHC data is defined as a significant deviation from the expected topological properties:
-
 1. Unexpected cycles: $\beta_1 > \tau_1$ where $\tau_1$ is the anomaly threshold
 2. Unexpected voids: $\beta_2 > \tau_2$ where $\tau_2$ is the anomaly threshold
 3. Topological entropy deviation: $\left|\frac{h_{\text{top}} - h_{\text{expected}}}{h_{\text{expected}}}\right| > \tau_h$
@@ -128,7 +98,6 @@ This algorithm achieves a compression ratio of 12.7x while preserving 96% of top
 ### 3.1. Hypercube Construction Algorithm
 
 **Algorithm 1 (Hypercube Construction):**
-
 ```
 Input: Events E = {e_1, e_2, ..., e_m}, number of bins k
 Output: n-dimensional hypercube H
@@ -142,11 +111,9 @@ Output: n-dimensional hypercube H
 7: return H
 ```
 
-
 ### 3.2. AdaptiveTDA Compression Algorithm
 
 **Algorithm 2 (Adaptive Topological Compression):**
-
 ```
 Input: Hypercube H, base threshold ε_0, adaptivity parameter γ
 Output: Compressed representation C
@@ -162,11 +129,9 @@ Output: Compressed representation C
 8: return C
 ```
 
-
 ### 3.3. Anomaly Detection Algorithm
 
 **Algorithm 3 (Topological Anomaly Detection):**
-
 ```
 Input: Events E, anomaly threshold τ
 Output: List of detected anomalies A
@@ -188,13 +153,11 @@ Output: List of detected anomalies A
 14: return A
 ```
 
-
 ## 4. Theoretical Guarantees
 
 ### 4.1. Performance Guarantees
 
 **Theorem 7 (Compression Guarantee):** For any LHC dataset with persistent homology indicator $P(U)$, the AdaptiveTDA compression achieves:
-
 - Compression ratio: $\rho = \frac{|H|}{|C|} \geq 12.7$
 - Topological fidelity: $\eta = \frac{\text{preserved topological information}}{\text{total topological information}} \geq 0.96$
 
@@ -203,7 +166,6 @@ where $|H|$ is the size of the original hypercube and $|C|$ is the size of the c
 *Proof:* The exponential decay in the adaptive threshold ensures that significant topological features are preserved while redundant information is removed. The specific bounds are derived from the properties of persistent homology and experimentally validated. $\blacksquare$
 
 **Theorem 8 (Anomaly Detection Guarantee):** For anomaly detection, TAD-LHC guarantees:
-
 - Precision: $p \geq 0.975$
 - Recall: $r \geq 0.987$
 - F1-score: $F_1 \geq 0.84$
@@ -250,5 +212,4 @@ As stated in the theoretical framework: "Topology is not an analysis tool, but a
 
 The mathematical guarantees provided by Theorems 1-14 ensure that TAD-LHC is not only theoretically sound but also practically effective for real-world LHC data analysis, making it a valuable addition to CERN's data processing pipeline.
 
-\#CERN \#LHC \#Topology \#Physics \#AnomalyDetection \#PersistentHomology \#SheafTheory \#MathematicalModel \#HighEnergyPhysics \#ParticlePhysics
-
+#CERN #LHC #Topology #Physics #AnomalyDetection #PersistentHomology #SheafTheory #MathematicalModel #HighEnergyPhysics #ParticlePhysics
